@@ -1,0 +1,54 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Register Page</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+</head>
+<body style="background-image: url('/assets/img/pocket-watch-665871_1280.jpg'); background-repeat: no-repeat; background-size: cover;">
+<main class="login-bg" th:classappend="${classActiveNewAccount}? 'in active'">
+
+<div class="register-form-area">
+<div class="register-form text-center">
+
+<div class="register-heading">
+<span>Sign Up</span>
+<p>Create your account to get full access</p>
+</div>
+
+
+<form th:action="@{/newUser}" method="post">
+	
+<div class="input-box">
+	<div class="alert alert-info" th:if="${emailSent}">
+		An email has been sent to the email address ou just registered. Please validate your email address and update your password information.
+	</div>
+<div class="single-input-fields">
+<label>Username <span style="color:red; font-size: 14px;" th:if="${usernameExists}">Username already exists. Choose a different one.</span>
+</label>
+<input required="required" type="text" name="username" id="newUsername"  placeholder="Enter your username">
+</div>
+<div class="single-input-fields">
+<label>Email Address <span style="color:red; font-size:14px;" th:if="${emailExists}">Email already exists. Choose a different one.</span></label>
+<input required="required" type="email" name="email" id="email" placeholder="Enter email address">
+</div>
+</div>
+
+<div class="register-footer">
+<p> Already have an account? <a href="login.html"> Login</a> here</p>
+<button type="submit" class="btn-send" style="cursor:pointer;">Sign Up</button>
+</div>
+</form>
+</div>
+
+</div>
+
+</main>
+</body>
+</html>

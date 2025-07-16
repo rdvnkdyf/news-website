@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xlmns:th="http://www.w3.org/1999/xhtml">
+  <body>
+	  <div th:fragment="footer">
+	        <footer class="sections sections__footer">
+      <div class="bg sections-bg footer-bg position-absolute"></div>
+      <div id="footerSection" class="section pt-4 container-xl section__default">
+        <div class="bg position-absolute section-bg"></div>
+        <hr class="divider section-divider">
+        <div class="section-inner">
+          <div class="section-body section-content">
+            <p class="text-center mb-4">
+              <a href="index-2.html" class=""><img alt="Magazinize" th:src="#{adminPath}+@{/assets/img/}+${settings.bigLogo}"></a>
+            </p>
+            <ul class="nav justify-content-center">
+              <li class="nav-item">
+                <a th:href="${settings.facebookUrl}" target="_blank" class="nav-link"><span class="fab fa-facebook" aria-hidden="true"></span></a>
+              </li>
+              <li class="nav-item">
+                <a th:href="${settings.youtubeUrl}" target="_blank" class="nav-link"><span class="fab fa-youtube" aria-hidden="true"></span></a>
+              </li>
+              <li class="nav-item">
+                <a th:href="${settings.twitterUrl}" target="_blank" class="nav-link"><span class="fab fa-twitter" aria-hidden="true"></span></a>
+              </li>
+              <li class="nav-item">
+                <a th:href="${settings.instagramUrl}" target="_blank" class="nav-link"><span class="fab fa-instagram" aria-hidden="true"></span></a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/contact}" target="_blank" class="nav-link"><span class="fas fa-envelope" aria-hidden="true"></span></a>
+              </li>
+            </ul>
+            <hr class="divider w-100">
+            
+      
+            <p class="text-center small">
+             
+              &copy; 2021 HABER EKSTRA, Made by Hakan SANDAL. All Rights Reserved.
+            </p>
+          </div><!-- /.section-body -->
+        </div><!-- /.section-inner -->
+      </div><!-- /#footerSection.section pt-4 container-xl section__default-->
+    </footer><!-- /.sections sections__footer -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    
+    <script src="../assets/js/plyr.js"></script> 
+    <script src="../assets/js/magazinize.js"></script>
+
+
+<script>
+  $(document).ready(function(){
+  $(".owl-carousel").owlCarousel({
+    items:1,
+	loop:true,
+	autoplay:true,
+	autoplayTimeout:3000,
+    autoplayHoverPause:true
+  });
+});
+</script>
+	</div>
+  </body>
+  </html>

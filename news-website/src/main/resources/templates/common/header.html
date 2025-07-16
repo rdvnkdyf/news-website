@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" xlmns:th="http://www.w3.org/1999/xhtml" 
+xmlns:sec="http://www.w3.org/1999/xhtml">
+  
+<head th:fragment="common-header">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    
+    <link rel="icon" th:href="#{adminPath}+@{/assets/img/}+${settings.icon}" type="image/png">
+
+      <meta name="description" th:content="${settings.description}">
+      <meta name="keywords" th:content="${settings.keywords}">
+      <meta name="author" th:content="${settings.author}">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Merriweather%7CRoboto:400,400i,700,700" rel="stylesheet">
+    <script src="/assets/js/538d9daa14.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/584c55a7ed.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/assets/css/plyr.css">
+    <link rel="stylesheet" href="/assets/css/magazinize-newspaper.css">
+
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/assets/css/owl.theme.default.min.css">
+
+    <title>
+      News Website
+    </title>
+  </head>
+
+  <body>
+	  <div th:fragment="navbar">
+	  <div id="banner1" class="section d-none d-md-flex container-fluid section__default no-gutter">
+      <div class="bg position-absolute section-bg bg-black"></div>
+      <hr class="divider section-divider d-none">
+      <div class="section-inner">
+        <div class="section-body">
+          <div class="banner banner-728x90 align-self-center">
+            <a href="http://html.coolorize.com/magazinize/1.0.0/"><img src="/assets/banners/magazinize-728x90.jpg" alt="Image"></a>
+          </div><!-- /.banner banner-728x90 -->
+        </div><!-- /.section-body -->
+      </div><!-- /.section-inner -->
+    </div><!-- /#banner1.section d-none d-md-flex container-fluid section__default no-gutter-->
+    
+    <header class="header sections sections__header">
+      <div class="bg sections-bg header-bg position-absolute"></div>
+      <nav class="navbar navbar__top navbar-expand navbar-light">
+        <div class="navbar-container container-xl position-relative">
+          <div class="collapse navbar-collapse flex-wrap">
+            <ul class="navbar-nav navbar-nav--left mr-auto">
+              <li class="nav-item">
+                <a th:href="@{/}" class="nav-link"><i class="fas fa-home"></i></a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/about}" class="nav-link">About</a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/contact}" class="nav-link">Contact</a>
+              </li>
+              
+          
+
+
+
+            </ul>
+            <ul class="navbar-nav navbar-nav--right ml-auto">
+              <li class="nav-item">
+                <a th:href="${settings.facebookUrl}" target="_blank" class="nav-link"><span class="fab fa-facebook" aria-hidden="true"></span></a>
+              </li>
+              <li class="nav-item">
+                <a th:href="${settings.youtubeUrl}" target="_blank" class="nav-link"><span class="fab fa-youtube" aria-hidden="true"></span></a>
+              </li>
+              <li class="nav-item">
+                <a th:href="${settings.twitterUrl}" target="_blank" class="nav-link"><span class="fab fa-twitter" aria-hidden="true"></span></a>
+              </li>
+              <li class="nav-item">
+                <a th:href="${settings.instagramUrl}" target="_blank" class="nav-link"><span class="fab fa-instagram" aria-hidden="true"></span></a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/contact}" class="nav-link" target="_blank"><span class="fas fa-envelope" aria-hidden="true"></span></a>
+              </li>
+            </ul>
+          </div>
+          <hr class="divider navbar-divider">
+        </div><!-- /.navbar-container container-xl position-relative -->
+      </nav><!-- /.navbar navbar__top navbar-expand navbar-light -->
+      <nav class="navbar navbar__middle navbar-expand navbar-light">
+        <div class="navbar-container container-xl position-relative">
+          <div class="collapse navbar-collapse flex-wrap">
+            <div class="navbar-text w-50 w-md-25 order-1 small">
+              <span th:text="${#dates.dayOfWeekName(standardDate)}"></span>, <span th:text="${#dates.format(standardDate, 'dd')}"></span> <span th:text="${#dates.monthName(standardDate)}"></span> <span th:text="${#dates.format(standardDate, 'yyyy')}"></span>
+            </div>
+            <ul class="navbar-nav navbar-nav--right w-50 w-md-25 justify-content-end text-right order-1 order-md-3">
+              <li class="nav-item">
+                <a sec:authorize="isAnonymous()" class="text-uppercase btn btn-link btn-sm my-1" th:href="@{/login}"><span class="d-inline-block">Sign&nbsp;In</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a sec:authorize="isAuthenticated()" class="text-uppercase btn btn-link btn-sm my-1" th:href="@{/myProfile}"><span class="d-inline-block">My&nbsp;Profile</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a sec:authorize="isAuthenticated()" class="text-uppercase btn btn-outline-primary btn-sm my-1" th:href="@{/logout}"><span class="d-inline-block">Logout</span></a>
+              </li>
+            </ul><a th:href="@{/}" class="navbar-brand mx-auto order-2 mt-3 mb-4 mt-xl-4"><img alt="Magazinize" th:src="#{adminPath}+@{/assets/img/}+${settings.bigLogo}"></a>
+          </div>
+          <hr class="divider navbar-divider">
+        </div><!-- /.navbar-container container-xl position-relative -->
+      </nav><!-- /.navbar navbar__middle navbar-expand navbar-light -->
+      <nav class="navbar navbar__bottom navbar-expand-lg navbar-light" data-toggle="sticky-onscroll">
+        <div class="navbar-container container-xl position-relative">
+          <div id="navbarMenuCollapse" class="collapse navbar-collapse">
+            <ul class="navbar-nav navbar-nav--left mr-auto w-25 justify-content-start">
+              <li class="nav-item dropdown d-none d-lg-block allow-hover">
+                <a class="nav-link dropdown-toggle text-uppercase myToggleIcon" href="#" id="mainnavDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars toggle-icon" aria-hidden="true"></i> <i class=
+                "fas fa-times-circle toggle-icon-show" aria-hidden="true"></i></a>
+                <div class="dropdown-menu w-300px" role="menu" aria-labelledby="mainnavDropdown">
+                  <div class="dropdown allow-hover active">
+                    <a class="dropdown-item dropdown-toggle h5 mb-0 active" tabindex="-1" href="home.html" id="homeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+                   
+                  </div>
+                  <div class="dropdown allow-hover">
+                    <a class="dropdown-item dropdown-toggle h5 mb-0" tabindex="-1" href="#" id="articleDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Article</a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="articleDropdown">
+                      <li>
+                        <a class="dropdown-item" href="article.html">Article</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="article-no-image.html">Article No Image</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="article-large-image.html">Article Large Hero</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="article-fullwindow-image.html">Article Full Window Image</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="article-top-image.html">Article Top Image</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="article-sidebar.html">Article Sidebar</a>
+                      </li>
+                      <li class="dropdown-divider"></li>
+                      <li>
+                        <a class="dropdown-item" href="index.html">All Article Templates</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="dropdown allow-hover">
+                    <a class="dropdown-item dropdown-toggle h5 mb-0" tabindex="-1" href="#" id="colorschemesVariantDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Colorscheme Variant</a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="colorschemesVariantDropdown">
+                      <li>
+                        <a class="dropdown-item" href="http://html.coolorize.com/magazinize/1.0.0/default/home-5.html">Default Home 5 Page Template</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="http://html.coolorize.com/magazinize/1.0.0/default-dark/home-5.html">Default Dark Home 5 Page Template</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="http://html.coolorize.com/magazinize/1.0.0/default-twotone/home-5.html">Default Twotone Home 5 Page Template</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="http://html.coolorize.com/magazinize/1.0.0/default-narrow/home-5.html">Default Narrow Home 5 Page Template</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item active" href="home-5.html">Newspaper Home 5 Page Template</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="http://html.coolorize.com/magazinize/1.0.0/newspaper-dark/home-5.html">Newspaper Dark Home 5 Page Template</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="http://html.coolorize.com/magazinize/1.0.0/magazine/home-5.html">Magazine Home 5 Page Template</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="dropdown allow-hover">
+                    <a class="dropdown-item dropdown-toggle h5 mb-0" tabindex="-1" href="#" id="allThemesTemplatesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Themes</a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="allThemesTemplatesDropdown">
+                      <li>
+                        <a class="dropdown-item" href="http://html.coolorize.com/magazinize/1.0.0/default/">Default</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="http://html.coolorize.com/magazinize/1.0.0/default-dark/">Default Dark</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="http://html.coolorize.com/magazinize/1.0.0/default-twotone/">Default Twotone</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="http://html.coolorize.com/magazinize/1.0.0/default-narrow/">Default Narrow</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item active" href="index-2.html">Newspaper</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="http://html.coolorize.com/magazinize/1.0.0/newspaper-dark/">Newspaper Dark</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="http://html.coolorize.com/magazinize/1.0.0/magazine/">Magazine</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="http://html.coolorize.com/magazinize/1.0.0/minimal/">Minimal</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="dropdown allow-hover">
+                    <a class="dropdown-item dropdown-toggle h5 mb-0" tabindex="-1" href="#" id="miscPagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Misc</a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="miscPagesDropdown">
+                      <li>
+                        <a class="dropdown-item" href="posts-by-category.html">Posts by Category</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="posts-by-category-2.html">Posts by Category 2</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="posts-by-category-grid.html">Posts by Category (Grid)</a>
+                      </li>
+                      <li class="dropdown-divider"></li>
+                      <li>
+                        <a class="dropdown-item" href="posts-by-coverage.html">Posts by Coverage/Topic</a>
+                      </li>
+                      <li class="dropdown-divider"></li>
+                      <li>
+                        <a class="dropdown-item" href="page-layout-1.html">Page Layout 1</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="page-layout-2.html">Page Layout 2</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="page-layout-2.html">Page Fullwidth Layout</a>
+                      </li>
+                      <li class="dropdown-divider"></li>
+                      <li>
+                        <a class="dropdown-item" href="search-results.html">Search Result</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="search-results-grid.html">Search Result (Grid)</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="dropdown allow-hover">
+                    <a class="dropdown-item h5 mb-0" href="home-6.html">Next Page</a>
+                  </div>
+                  <div class="dropdown allow-hover">
+                    <a class="dropdown-item h5 mb-0" href="http://html.coolorize.com/magazinize/1.0.0/newspaper-dark/home-5.html">Next Colorscheme</a>
+                  </div>
+                  <div class="dropdown-divider"></div>
+                  <div class="row m-0">
+                    <a class="dropdown-item col-6" href="posts-by-category.html">Featured</a> <a class="dropdown-item col-6" href="posts-by-category.html">Tags or Cats</a> <a class="dropdown-item col-6" href="posts-by-category.html">Such As</a>
+                    <a class="dropdown-item col-6" href="posts-by-category.html">Bussiness</a> <a class="dropdown-item col-6" href="posts-by-category.html">Tech</a> <a class="dropdown-item col-6" href="posts-by-category.html">Review</a> <a class=
+                    "dropdown-item col-6" href="posts-by-category.html">Video</a> <a class="dropdown-item col-6" href="posts-by-category.html">Lifestyle</a> <a class="dropdown-item col-6" href="posts-by-category.html">Music</a> <a class=
+                    "dropdown-item col-6" href="posts-by-category.html">Movie</a> <a class="dropdown-item col-6" href="posts-by-category.html">Gaming</a> <a class="dropdown-item col-6" href="posts-by-category.html">Goes Here</a>
+                    <div class="dropdown-divider col-12"></div><a class="dropdown-item col-12" href="posts-by-category.html">All Topics</a>
+                  </div><!-- /.row -->
+                </div>
+              </li><!-- /.nav-item dropdown d-none d-lg-block -->
+              <li class="nav-item d-lg-none">
+                <a href="#" class="nav-link" role="button" data-toggle="modal" data-target="#mobileNav"><i class="fas fa-bars" aria-hidden="true"></i></a>
+              </li><!-- /.nav-item d-lg-none -->
+            </ul>
+            <div class="navbar-nav mx-auto text-center">
+
+             <!--Home-->
+              <div class="nav-item dropdown dropdown--mega allow-hover active">
+                <a class="nav-link dropdown-toggle" href="#" id="menuHome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+                
+              </div>
+              <!--Home-->
+              
+
+              <!--Menu-->
+              <div data-th-each="firstSixCategory : ${firstSixByCategoryList}">
+              <div class="nav-item dropdown allow-hover">
+                <a class="nav-link" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="${#strings.toUpperCase(firstSixCategory.name)}"></a>
+
+              </div>
+              </div>
+              <!--Menu-->
+
+
+              <!--Diğer-->
+              <div class="nav-item dropdown allow-hover" >
+                <a class="nav-link dropdown-toggle" href="post-by-category.html" id="menuNextPages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DİĞER</a>
+                <div class="dropdown-menu" aria-labelledby="menuNextPages">
+
+                    <div data-th-each="afterSixCategory : ${afterSixByCategoryList}">
+                  <a class="dropdown-item" href="post-by-category.html" th:text="${#strings.toUpperCase(afterSixCategory.name)}"></a> 
+               
+                </div>
+                </div>
+              </div>
+              <!--Diğer-->
+
+              <!--VİP NEWS-->
+              <div class="nav-item">
+                <a sec:authorize="isAuthenticated()" href="#" class="nav-link text-success">VİP&nbsp;NEWS</a>
+              </div>
+              <!--VİP NEWS-->
+
+            </div>
+            <ul class="navbar-nav navbar-nav--right ml-auto w-25 justify-content-end">
+              <li class="nav-item dropdown dropdown--mega allow-hover">
+                <a class="nav-link dropdown-toggle" href="#" id="searchFormDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-search" aria-hidden="true"></i></a>
+                <div class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="searchFormDropdown">
+                  <div class="dropdown-container container-xl">
+                    <form id="searchForm" action="http://html.coolorize.com/magazinize/1.0.0/newspaper/search-results.html" method="get" class="form-inline flex-nowrap w-lg-75 mx-lg-auto" name="searchForm">
+                      <div class="input-group w-100">
+                        <input type="text" name="search" class="form-control" placeholder="Keyword">
+                        <div class="input-group-append">
+                          <button type="submit" class="btn btn btn-primary"><i class="fas fa-search"></i></button>
+                        </div>
+                      </div>
+                    </form>
+                  </div><!--/.dropdown-container.container-xl-->
+                </div><!--/.dropdown-menu.dropdown-menu-right-->
+              </li><!--/.nav-item-->
+              <li class="nav-item dropdown allow-hover">
+                <a class="nav-link dropdown-toggle" href="#" id="loginSIgnUpDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-user" aria-hidden="true"></i></a>
+                <div class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="loginSIgnUpDropdown">
+                  <a sec:authorize="isAnonymous()" th:href="@{/login}" class="dropdown-item">Sign In</a> 
+                   <a sec:authorize="isAuthenticated()" th:href="@{/myProfile}" class="dropdown-item">My Profile</a> 
+                  <a sec:authorize="isAnonymous()" th:href="@{/myAccount}" class="dropdown-item">Sign Up</a>
+                       <a sec:authorize="isAuthenticated()" th:href="@{/logout}" class="dropdown-item">Logout</a>
+                </div>
+              </li>
+            </ul>
+          </div><!-- /#navbarMenuCollapse.collapse navbar-collapse -->
+          <hr class="divider navbar-divider">
+        </div><!-- /.navbar-container container-xl position-relative -->
+      </nav><!-- /.navbar navbar__bottom navbar-expand navbar-light -->
+      <nav class="navbar navbar__bottom navbar-expand navbar-light">
+        <div class="navbar-container container-xl position-relative">
+          <div class="collapse navbar-collapse flex-wrap">
+            <ul class="navbar-nav navbar-nav--left mx-auto">
+              <li class="nav-item nav-item--text" >
+                <span class="strong text-danger text-uppercase small mr-1">Çok Konuşulan Konular : </span> 
+                <span data-th-each="trendingTopic : ${trendingTopicList}">
+                <a href="#" class="badge badge-light" th:text="${trendingTopic.name}"></a> 
+                </span>
+              
+              </li>
+            </ul>
+          </div>
+          <hr class="divider navbar-divider">
+        </div><!-- /.navbar-container container-xl position-relative -->
+      </nav><!-- /.navbar navbar__top navbar-expand navbar-light -->
+	</header><!-- /.header -->
+	</div>
+  </body>
+  </html>

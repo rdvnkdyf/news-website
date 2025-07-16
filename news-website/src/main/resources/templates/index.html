@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en" xlmns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+
+  <body class="">
+  <div th:replace="common/header :: navbar" />
+
+    <main class="main sections sections__main">
+      <div class="bg sections-bg main-bg position-absolute"></div>
+      <div id="multicolssection1" class="section container-xl section__default">
+        <div class="bg position-absolute section-bg"></div>
+        <hr class="divider section-divider d-none">
+        <div class="section-inner">
+          <div class="row sections section-sections">
+            <div class="col-12 col-xl">
+              <div id="featuredSection" class="section section__default">
+                <div class="bg position-absolute section-bg bg-transparent"></div>
+                <hr class="divider section-divider d-none">
+                <div class="section-inner">
+                  <div class="section-body">
+                    <div class="posts posts__sumrys row sumrys__divider">
+                      <article class="post post__default post__sumry sumry__horz sumry__horz-2to1 size-md col-12 sumry__valign-none">
+                        <div class="sumry-inner">
+                          <hr class="divider sumry-divider">
+                          <div class="sumry-body">
+
+<!--Carousel-->
+                            <figure class="figure post-thumbnail sumry-thumbnail">
+
+                              <div class="owl-carousel owl-theme">
+                             
+                                <span data-th-each="lastSixNews : ${lastSixNewsList}">
+                               <a th:href="@{/newsDetail?id=}+${lastSixNews.id}"><img alt="" th:src="*{'data:image/jpeg;base64,'+{lastSixNews.image}}" style="width: 976px; height:400px;"></a>
+                           </span>
+                              
+                      
+                              </div>
+                              
+                            </figure>
+<!--Carousel-->
+
+
+
+                            <div class="post-content sumry-content">
+                              <span data-th-each="StartAt6Find2News : ${StartAt6Find2NewsList}">
+                              <div class="post-category text-uppercase">
+                                <span  class="post-category-a" th:text="${StartAt6Find2News.category}"></span>
+                              </div><!-- /.post-meta post-category text-uppercase -->
+                              <h3 class="post-title sumry-title" style="font-size: 19px;">
+                                <a th:href="@{/newsDetail?id=}+${StartAt6Find2News.id}" class="post-title-a sumry-title-a" th:text="${StartAt6Find2News.title}"></a>
+                              </h3>
+                              <div class="post-excerpt d-none d-md-block">
+                                <p th:text="${#strings.abbreviate(StartAt6Find2News.subTitle,100)}">
+                                  
+                                </p>
+                                  <div class="post-meta">
+                                <span class="post-author"><span class="post-meta-a" th:text="${StartAt6Find2News.author}"></span></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><span th:text="${StartAt6Find2News.publicationDate}" class="post-meta-a">
+                                </span></span>
+                              </div>
+                              </div><!-- /.post-excerpt d-none d-md-block -->
+</span>
+                              
+                            </div><!-- /.post-content sumry-content -->
+
+
+
+
+
+
+
+
+                          </div><!-- /.sumry-body -->
+                        </div><!-- /.sumry-inner -->
+                     
+                     
+                      </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-2to1 size-md col-12 sumry__valign-none-->
+                     
+                     
+                      <article class="post post__default post__sumry sumry__text size-sm col-6 col-lg-4 sumry__valign-none" data-th-each="StartAt8Find6News : ${StartAt8Find6NewsList}">
+                        <div class="sumry-inner">
+                          <hr class="divider sumry-divider">
+                          <div class="sumry-body">
+                            <div class="post-content sumry-content">
+                              <div class="post-category text-uppercase">
+                                <span th:text="${StartAt8Find6News.category}" class="post-category-a"></span> 
+                              </div><!-- /.post-meta post-category text-uppercase -->
+                              <h3 class="post-title sumry-title">
+                                <a th:href="@{/newsDetail?id=}+${StartAt8Find6News.id}" class="post-title-a sumry-title-a" th:text="${StartAt8Find6News.title}"></a>
+                              </h3>
+                              <div class="post-excerpt d-none d-lg-flex row">
+                                <div class="col-3 order-2 pl-0">
+                                  <a th:href="@{/newsDetail?id=}+${StartAt8Find6News.id}"><img th:src="*{'data:image/jpeg;base64,'+{StartAt8Find6News.image}}" class="img w-100" alt="Image"></a>
+                                </div><!-- /. col-3 order-2 pl-0 -->
+                                <div class="col-9 order-1">
+                                  <p th:text="${#strings.abbreviate(StartAt8Find6News.subTitle,100)}">
+                                   
+                                  </p>
+                                </div><!-- /. col-9 order-1 -->
+                              </div><!-- /.post-excerpt d-none d-lg-flex row row -->
+                              <div class="post-meta">
+                                <span class="post-author"><span class="post-meta-a" th:text="${StartAt8Find6News.author}"></span></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><span class="post-meta-a" th:text="${StartAt8Find6News.publicationDate}">
+                                </span></span>
+                              </div>
+                            </div><!-- /.post-content sumry-content -->
+                          </div><!-- /.sumry-body -->
+                        </div><!-- /.sumry-inner -->
+                      </article><!-- /.post post__default post__sumry sumry__text size-sm col-6 col-lg-4 sumry__valign-none-->
+                      
+                      
+                 
+                     
+                     
+                      
+                    </div><!-- /.posts posts__sumrys row sumrys__divider -->
+                  </div><!-- /.section-body -->
+                </div><!-- /.section-inner -->
+              </div><!-- /#featuredSection.section section__default-->
+              <div id="editorPicksSection" class="section section__default">
+                <div class="bg position-absolute section-bg"></div>
+                <hr class="divider section-divider">
+                <div class="section-inner">
+                  <header class="section-header">
+                    <h2 class="section-title">
+                      <a href="archive.html" class="section-title-a">Editor Picks</a>
+                    </h2>
+                  </header>
+                  <div class="section-body">
+                    <div class="posts posts__sumrys row sumrys__divider">
+                      
+                      
+
+
+                      <article class="post post__default post__sumry sumry__vert size-sm col-6 col-lg-3 sumry__valign-none" data-th-each="findEditorPicksLast8ByNews : ${findEditorPicksLast8ByNewsList}">
+                        <div class="sumry-inner">
+                          <hr class="divider sumry-divider">
+                          <div class="sumry-body">
+                            <figure class="figure post-thumbnail sumry-thumbnail">
+                              <a th:href="@{/newsDetail?id=}+${findEditorPicksLast8ByNews.id}" class="img-wrapper"><img th:src="*{'data:image/jpeg;base64,'+{findEditorPicksLast8ByNews.image}}" class="img figure-img" alt="Image"></a>
+                            </figure>
+                            <div class="post-content sumry-content">
+                              <div class="post-category text-uppercase">
+                                <span class="post-category-a" th:text="${findEditorPicksLast8ByNews.category}"></span>
+                              </div><!-- /.post-meta post-category text-uppercase -->
+                              <h3 class="post-title sumry-title">
+                                <a th:href="@{/newsDetail?id=}+${findEditorPicksLast8ByNews.id}" class="post-title-a sumry-title-a" th:text="${findEditorPicksLast8ByNews.title}"></a>
+                              </h3>
+                              <div class="post-meta">
+                                <span class="post-author"><span  class="post-meta-a" th:text="${findEditorPicksLast8ByNews.author}"></span></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><span class="post-meta-a" th:text="${findEditorPicksLast8ByNews.publicationDate}">
+                                </span></span>
+                              </div>
+                            </div><!-- /.post-content sumry-content -->
+                          </div><!-- /.sumry-body -->
+                        </div><!-- /.sumry-inner -->
+                      </article><!-- /.post post__default post__sumry sumry__vert size-sm col-6 col-lg-3 sumry__valign-none-->
+                      
+
+
+
+
+                    </div><!-- /.posts posts__sumrys row sumrys__divider -->
+                  </div><!-- /.section-body -->
+                </div><!-- /.section-inner -->
+              </div><!-- /#editorPicksSection.section section__default-->
+            </div><!-- /.col-12 col-xl -->
+            <div class="col-12 col-xl-300px">
+              <div id="banner2" class="section section__default">
+                <div class="bg position-absolute section-bg"></div>
+                <hr class="divider section-divider d-xl-none">
+                <div class="section-inner">
+                  <div class="banner banner-300x250 align-self-center">
+                    <a href="http://html.coolorize.com/magazinize/1.0.0/"><img src="/assets/banners/magazinize-300x250.jpg" alt="Image"></a>
+                  </div><!-- /.banner banner-300x250 -->
+                </div><!-- /.section-inner -->
+              </div><!-- /#banner2.section section__default-->
+              <div id="recentSection" class="section section__default">
+                <div class="bg position-absolute section-bg"></div>
+                <hr class="divider section-divider">
+                <div class="section-inner">
+                  
+                  <div class="section-body">
+                    <div class="posts posts__sumrys row sumrys__divider">
+
+
+                      <!--Right SideBar-->
+                      <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top" data-th-each="StartAt14Find10News : ${StartAt14Find10NewsList}">
+                        <div class="sumry-inner">
+                          <hr class="divider sumry-divider">
+                          <div class="sumry-body">
+                            <figure class="figure post-thumbnail sumry-thumbnail">
+                              <a th:href="@{/newsDetail?id=}+${StartAt14Find10News.id}" class="img-wrapper"><img th:src="*{'data:image/jpeg;base64,'+{StartAt14Find10News.image}}" class="img figure-img" alt="Image"></a>
+                            </figure>
+                            <div class="post-content sumry-content">
+                              <div class="post-category text-uppercase">
+                                <span class="post-category-a" th:text="${StartAt14Find10News.category}"></span> 
+                              </div><!-- /.post-meta post-category text-uppercase -->
+                              <h3 class="post-title sumry-title">
+                                <a th:href="@{/newsDetail?id=}+${StartAt14Find10News.id}" class="post-title-a sumry-title-a" th:text="${StartAt14Find10News.title}"></a><span class="post-meta text-muted">&nbsp;–</span> <span class=
+                                "post-meta post-time"><span href="#" class="post-meta-a" th:text="${StartAt14Find10News.publicationDate}"></span></span>
+                              </h3>
+                            </div><!-- /.post-content sumry-content -->
+                          </div><!-- /.sumry-body -->
+                        </div><!-- /.sumry-inner -->
+                      </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top-->
+                     <!--Right SideBar-->
+                      
+
+                    </div><!-- /.posts posts__sumrys row sumrys__divider -->
+                  </div><!-- /.section-body -->
+                </div><!-- /.section-inner -->
+              </div><!-- /#recentSection.section section__default-->
+            </div><!-- /.col-12 col-xl-3 -->
+          </div><!-- /.row sections section-sections -->
+        </div><!-- /.section-inner -->
+      </div><!-- /#multicolssection1.section container-xl section__default-->
+      <div id="banner3" class="section d-none d-md-flex container-xl section__default">
+        <div class="bg position-absolute section-bg"></div>
+        <hr class="divider section-divider d-none">
+        <div class="section-inner">
+          <div class="section-body">
+            <div class="banner banner-728x90 align-self-center">
+              <a href="http://html.coolorize.com/magazinize/1.0.0/"><img src="/assets/banners/magazinize-728x90.jpg" alt="Image"></a>
+            </div><!-- /.banner banner-728x90 -->
+          </div><!-- /.section-body -->
+        </div><!-- /.section-inner -->
+      </div><!-- /#banner3.section d-none d-md-flex container-xl section__default-->
+      <div id="videoSection" class="section container-xl section__default">
+        <div class="bg position-absolute section-bg"></div>
+        <hr class="divider section-divider">
+        <div class="section-inner">
+          <header class="section-header">
+            <h2 class="section-title">
+              <a href="archive.html" class="section-title-a">Video</a>
+            </h2>
+          </header>
+          <div class="section-body">
+            <div class="posts posts__sumrys row sumrys__divider">
+              <div class="post post__default post__sumry true size- col-12 col-xl-9 sumry__valign-none">
+                <div class="sumry-inner">
+                  <hr class="divider sumry-divider">
+                  <div class="sumry-body">
+                    <figure class="figure post-thumbnail sumry-thumbnail">
+                      <div id="videoSectionPlyr" class="plyr__video-embed">
+                        <iframe th:src="${settings.videoUrl}" allowfullscreen></iframe>
+                      </div>
+                    </figure>
+                  </div><!-- /.sumry-body -->
+                </div><!-- /.sumry-inner -->
+              </div><!-- /.post post__default post__sumry true size- col-12 col-xl-9 sumry__valign-none-->
+              <div class="col-12 col-xl-3 position-relative my-xl-gtr">
+                <div class="position-relative h-100">
+                  <div class="position-xl-absolute h-xl-100 w-xl-100 overflowy-auto overflowx-hidden">
+                    <div class="position-relative pr-xl-2">
+                      <div class="row plyr-playlist">
+                       
+                       
+                        <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-none" data-th-each="StartAt24Find10News : ${StartAt24Find10NewsList}">
+                          <div class="sumry-inner">
+                            <hr class="divider sumry-divider">
+                            <div class="sumry-body">
+                              <figure class="figure post-thumbnail sumry-thumbnail">
+                                <a th:href="@{/newsDetail?id=}+${StartAt24Find10News.id}" class="img-wrapper plyr-play" data-plyr-id="#videoSectionPlyr"><img th:src="*{'data:image/jpeg;base64,'+{StartAt24Find10News.image}}" class="img figure-img" alt="Image"></a>
+                              </figure>
+                              <div class="post-content sumry-content">
+                                <h3 class="post-title sumry-title">
+                                  <a th:href="@{/newsDetail?id=}+${StartAt24Find10News.id}" class="post-title-a sumry-title-a plyr-play" data-plyr-id="#videoSectionPlyr" th:text="${StartAt24Find10News.title}"
+                                  ></a><span class="post-meta text-muted">&nbsp;–</span> <span class=
+                                  "post-meta post-time"><span  class="post-meta-a" th:text="${StartAt24Find10News.publicationDate}"></span></span>
+                                </h3>
+                              </div><!-- /.post-content sumry-content -->
+                            </div><!-- /.sumry-body -->
+                          </div><!-- /.sumry-inner -->
+                        </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-none-->
+                      
+                      
+                      
+                      
+                      </div><!-- /.row plyr-playlist -->
+                    </div><!-- /.position-relative -->
+                  </div><!-- /.position-xl-absolute h-xl-100 w-xl-100 my-xl-gtr2 -->
+                </div><!-- /.position-xl-relative -->
+              </div><!-- /.col-12 col-xl-3 -->
+            </div><!-- /.posts posts__sumrys row sumrys__divider -->
+          </div><!-- /.section-body -->
+        </div><!-- /.section-inner -->
+      </div><!-- /#videoSection.section container-xl section__default-->
+      <div id="banner4" class="section d-none d-md-flex container-xl section__default">
+        <div class="bg position-absolute section-bg"></div>
+        <hr class="divider section-divider d-none">
+        <div class="section-inner">
+          <div class="section-body">
+            <div class="banner banner-728x90 align-self-center">
+              <a href="http://html.coolorize.com/magazinize/1.0.0/"><img src="/assets/banners/magazinize-728x90.jpg" alt="Image"></a>
+            </div><!-- /.banner banner-728x90 -->
+          </div><!-- /.section-body -->
+        </div><!-- /.section-inner -->
+      </div><!-- /#banner4.section d-none d-md-flex container-xl section__default-->
+      <div id="popularPostsSection" class="section container-xl section__default">
+        <div class="bg position-absolute section-bg"></div>
+        <hr class="divider section-divider">
+        <div class="section-inner">
+          <header class="section-header">
+            <h2 class="section-title">
+              <a href="archive.html" class="section-title-a">Popular</a>
+            </h2>
+          </header>
+          <div class="section-body">
+            <div class="posts posts__sumrys row sumrys__divider sumrys__counter counter__overlay-l">
+              
+              
+
+
+              <article class="post post__default post__sumry sumry__vert size-xs col-6 col-md-4 col-xl-2 sumry__valign-none" data-th-each="findPopularLast6ByNews : ${findPopularLast6ByNewsList}">
+                <div class="sumry-inner">
+                  <hr class="divider sumry-divider">
+                  <div class="sumry-body">
+                    <figure class="figure post-thumbnail sumry-thumbnail">
+                      <a th:href="@{/newsDetail?id=}+${findPopularLast6ByNews.id}" class="img-wrapper"><img th:src="*{'data:image/jpeg;base64,'+{findPopularLast6ByNews.image}}" class="img figure-img" alt="Image"></a>
+                    </figure>
+                    <div class="post-content sumry-content">
+                      <div class="post-category text-uppercase">
+                        <span class="post-category-a" th:text="${findPopularLast6ByNews.category}">
+                        </span><!-- /.post-meta post-category text-uppercase -->
+                      <h3 class="post-title sumry-title">
+                        <a th:href="@{/newsDetail?id=}+${findPopularLast6ByNews.id}" class="post-title-a sumry-title-a" th:text="${findPopularLast6ByNews.title}"></a>
+                      </h3>
+                      <div class="post-meta">
+                        <span class="post-author"><span  class="post-meta-a" th:text="${findPopularLast6ByNews.author}"></span></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><span  class="post-meta-a" th:text="${findPopularLast6ByNews.publicationDate}">
+                        </span></span>
+                      </div>
+                    </div><!-- /.post-content sumry-content -->
+                  </div><!-- /.sumry-body -->
+                </div><!-- /.sumry-inner -->
+              </article><!-- /.post post__default post__sumry sumry__vert size-xs col-6 col-md-4 col-xl-2 sumry__valign-none-->
+             
+
+
+
+             
+             
+
+            </div><!-- /.posts posts__sumrys row sumrys__divider sumrys__counter counter__overlay-l -->
+          </div><!-- /.section-body -->
+        </div><!-- /.section-inner -->
+      </div><!-- /#popularPostsSection.section container-xl section__default-->
+
+
+      
+      
+      <div id="banner6" class="section d-none d-md-flex container-xl section__default">
+        <div class="bg position-absolute section-bg"></div>
+        <hr class="divider section-divider d-none">
+        <div class="section-inner">
+          <div class="section-body">
+            <div class="banner banner-728x90 align-self-center">
+              <a href="http://html.coolorize.com/magazinize/1.0.0/"><img src="/assets/banners/magazinize-728x90.jpg" alt="Image"></a>
+            </div><!-- /.banner banner-728x90 -->
+          </div><!-- /.section-body -->
+        </div><!-- /.section-inner -->
+      </div><!-- /#banner6.section d-none d-md-flex container-xl section__default-->
+      <div id="multicolssection4" class="section container-xl section__default">
+        <div class="bg position-absolute section-bg"></div>
+        <hr class="divider section-divider d-none">
+        <div class="section-inner">
+          <div class="sections section-sections row">
+            <div id="reviewSection" class="section col-12 col-xl-3 section__default">
+              <div class="bg position-absolute section-bg"></div>
+              <hr class="divider section-divider">
+              <div class="section-inner">
+                <header class="section-header">
+                  <h2 class="section-title">
+                    <a href="archive.html" class="section-title-a">Bilim</a>
+                  </h2>
+                </header>
+                <div class="section-body">
+                  <div class="posts posts__sumrys row sumrys__divider">
+                   
+                    <div class="col-12 col-lg-4 col-xl-12 mt-xl-auto">
+                      <div class="posts posts__sumrys row">
+
+
+                        <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-12 sumry__valign-none" data-th-each="findScienceByNews : ${findScienceByNewsList}">
+                          <div class="sumry-inner">
+                            <hr class="divider sumry-divider">
+                            <div class="sumry-body">
+                              <figure class="figure post-thumbnail sumry-thumbnail">
+                                <a th:href="@{/newsDetail?id=}+${findScienceByNews.id}" class="img-wrapper"><img th:src="*{'data:image/jpeg;base64,'+{findScienceByNews.image}}" class="img figure-img" alt="Image"></a>
+                              </figure>
+                              <div class="post-content sumry-content">
+                                <h3 class="post-title sumry-title">
+                                  <a th:href="@{/newsDetail?id=}+${findScienceByNews.id}" class="post-title-a sumry-title-a" th:text="${findScienceByNews.title}"></a><span class="post-meta text-muted">&nbsp;–</span> <span class="post-meta post-time"><span
+                                  class="post-meta-a" th:text="${findScienceByNews.publicationDate}"></span></span>
+                                </h3>
+                              </div><!-- /.post-content sumry-content -->
+                            </div><!-- /.sumry-body -->
+                          </div><!-- /.sumry-inner -->
+                        </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-12 sumry__valign-none-->
+                        
+                        
+                        
+                        
+                      
+                      
+
+                      </div><!-- /.posts posts__sumrys row -->
+                    </div><!-- /.col- col-lg-8 col-xl-12 -->
+                  </div><!-- /.posts posts__sumrys row sumrys__divider -->
+                </div><!-- /.section-body -->
+              </div><!-- /.section-inner -->
+            </div><!-- /#reviewSection.section col-12 col-xl-3 section__default-->
+            <div id="lifestyleSection" class="section col-12 col-xl-3 section__default">
+              <div class="bg position-absolute section-bg"></div>
+              <hr class="divider section-divider">
+              <div class="section-inner">
+                <header class="section-header">
+                  <h2 class="section-title">
+                    <a href="archive.html" class="section-title-a">Teknoloji</a>
+                  </h2>
+                </header>
+                <div class="section-body">
+                  <div class="posts posts__sumrys row sumrys__divider">
+                   
+                    <div class="col-12 col-lg-4 col-xl-12 mt-xl-auto">
+                      <div class="posts posts__sumrys row">
+
+
+                          <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-12 sumry__valign-none" data-th-each="findTechByNews : ${findTechByNewsList}">
+                          <div class="sumry-inner">
+                            <hr class="divider sumry-divider">
+                            <div class="sumry-body">
+                              <figure class="figure post-thumbnail sumry-thumbnail">
+                                <a th:href="@{/newsDetail?id=}+${findTechByNews.id}" class="img-wrapper"><img th:src="*{'data:image/jpeg;base64,'+{findTechByNews.image}}" class="img figure-img" alt="Image"></a>
+                              </figure>
+                              <div class="post-content sumry-content">
+                                <h3 class="post-title sumry-title">
+                                  <a th:href="@{/newsDetail?id=}+${findTechByNews.id}" class="post-title-a sumry-title-a" th:text="${findTechByNews.title}"></a><span class="post-meta text-muted">&nbsp;–</span> <span class="post-meta post-time"><span
+                                  class="post-meta-a" th:text="${findTechByNews.publicationDate}"></span></span>
+                                </h3>
+                              </div><!-- /.post-content sumry-content -->
+                            </div><!-- /.sumry-body -->
+                          </div><!-- /.sumry-inner -->
+                        </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-12 sumry__valign-none-->
+                        
+                        
+                      
+                      </div><!-- /.posts posts__sumrys row -->
+                    </div><!-- /.col- col-lg-8 col-xl-12 -->
+                  </div><!-- /.posts posts__sumrys row sumrys__divider -->
+                </div><!-- /.section-body -->
+              </div><!-- /.section-inner -->
+            </div><!-- /#lifestyleSection.section col-12 col-xl-3 section__default-->
+            <div id="entertainmentSection" class="section col-12 col-xl-3 section__default">
+              <div class="bg position-absolute section-bg"></div>
+              <hr class="divider section-divider">
+              <div class="section-inner">
+                <header class="section-header">
+                  <h2 class="section-title">
+                    <a href="archive.html" class="section-title-a">Saglik</a>
+                  </h2>
+                </header>
+                <div class="section-body">
+                  <div class="posts posts__sumrys row sumrys__divider">
+                   
+                    <div class="col-12 col-lg-4 col-xl-12 mt-xl-auto">
+                      <div class="posts posts__sumrys row">
+                        
+                        
+                        <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-12 sumry__valign-none" data-th-each="findHealthByNews : ${findHealthByNewsList}">
+                          <div class="sumry-inner">
+                            <hr class="divider sumry-divider">
+                            <div class="sumry-body">
+                              <figure class="figure post-thumbnail sumry-thumbnail">
+                                <a th:href="@{/newsDetail?id=}+${findHealthByNews.id}" class="img-wrapper"><img th:src="*{'data:image/jpeg;base64,'+{findHealthByNews.image}}" class="img figure-img" alt="Image"></a>
+                              </figure>
+                              <div class="post-content sumry-content">
+                                <h3 class="post-title sumry-title">
+                                  <a th:href="@{/newsDetail?id=}+${findHealthByNews.id}" class="post-title-a sumry-title-a" th:text="${findHealthByNews.title}"></a><span class="post-meta text-muted">&nbsp;–</span> <span class="post-meta post-time"><span
+                                  class="post-meta-a" th:text="${findHealthByNews.publicationDate}"></span></span>
+                                </h3>
+                              </div><!-- /.post-content sumry-content -->
+                            </div><!-- /.sumry-body -->
+                          </div><!-- /.sumry-inner -->
+                        </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-12 sumry__valign-none-->
+                       
+                      
+                      
+                      </div><!-- /.posts posts__sumrys row -->
+                    </div><!-- /.col- col-lg-8 col-xl-12 -->
+                  </div><!-- /.posts posts__sumrys row sumrys__divider -->
+                </div><!-- /.section-body -->
+              </div><!-- /.section-inner -->
+            </div><!-- /#entertainmentSection.section col-12 col-xl-3 section__default-->
+            <div id="sporttSection" class="section col-12 col-xl-3 section__default">
+              <div class="bg position-absolute section-bg"></div>
+              <hr class="divider section-divider">
+              <div class="section-inner">
+                <header class="section-header">
+                  <h2 class="section-title">
+                    <a href="archive.html" class="section-title-a">Kitap Sanat</a>
+                  </h2>
+                </header>
+                <div class="section-body">
+                  <div class="posts posts__sumrys row sumrys__divider">
+                   
+                    <div class="col-12 col-lg-4 col-xl-12 mt-xl-auto">
+                      <div class="posts posts__sumrys row">
+                       
+                       
+                           <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-12 sumry__valign-none" data-th-each="findBookArtByNews : ${findBookArtByNewsList}">
+                          <div class="sumry-inner">
+                            <hr class="divider sumry-divider">
+                            <div class="sumry-body">
+                              <figure class="figure post-thumbnail sumry-thumbnail">
+                                <a th:href="@{/newsDetail?id=}+${findBookArtByNews.id}" class="img-wrapper"><img th:src="*{'data:image/jpeg;base64,'+{findBookArtByNews.image}}" class="img figure-img" alt="Image"></a>
+                              </figure>
+                              <div class="post-content sumry-content">
+                                <h3 class="post-title sumry-title">
+                                  <a th:href="@{/newsDetail?id=}+${findBookArtByNews.id}" class="post-title-a sumry-title-a" th:text="${findBookArtByNews.title}"></a><span class="post-meta text-muted">&nbsp;–</span> <span class="post-meta post-time"><span
+                                  class="post-meta-a" th:text="${findBookArtByNews.publicationDate}"></span></span>
+                                </h3>
+                              </div><!-- /.post-content sumry-content -->
+                            </div><!-- /.sumry-body -->
+                          </div><!-- /.sumry-inner -->
+                        </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-12 sumry__valign-none-->
+                       
+
+
+                      </div><!-- /.posts posts__sumrys row -->
+                    </div><!-- /.col- col-lg-8 col-xl-12 -->
+                  </div><!-- /.posts posts__sumrys row sumrys__divider -->
+                </div><!-- /.section-body -->
+              </div><!-- /.section-inner -->
+            </div><!-- /#sporttSection.section col-12 col-xl-3 section__default-->
+          </div><!-- /.sections section-sections row -->
+        </div><!-- /.section-inner -->
+      </div><!-- /#multicolssection4.section container-xl section__default-->
+    </main><!-- /.sections main-sections -->
+ 
+	<div th:replace="/common/footer :: footer" />
+
+  </body>
+
+</html>

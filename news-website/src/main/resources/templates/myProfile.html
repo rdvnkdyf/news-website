@@ -1,0 +1,94 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Register Page</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body style="background-image: url('/assets/img/pocket-watch-665871_1280.jpg'); background-repeat: no-repeat; background-size: cover; background-color: #F7F8FB;">
+
+
+<main class="login-bg" th:classappend="${classActiveEdit}? 'in active'">
+<div class="hero-area slider-area">
+<div class="hero-height2 hero-bg2 d-flex align-items-center">
+<div class="container">
+<div class="row">
+<div class="col-xl-12">
+<div class="hero-cap">
+<h2>My Profile</h2>
+
+<ul class="breadcrumb">
+    <li><a th:href="@{/}">Home</a></li>
+    <li class="active">Profile</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="register-form-area">
+<div class="register-form text-center">
+
+<div class="register-heading">
+<span th:text="${#strings.toUpperCase(user.username)}"></span>
+<p>Edit your account</p>
+</div>
+
+<form th:action="@{/updateUserInfo}" method="post">
+<div class="input-box">
+<div class="single-input-fields">
+
+<input type="hidden" name="id" th:value="${user.id}" />
+<div class="bg-info" th:if="${updateUserInfo}">User info updated.</div>
+
+<label>First Name</label>
+<input type="text" name="firstname" id="firstName" th:value="${user.firstname}">
+</div>
+<div class="single-input-fields">
+<label>Last Name</label>
+<input type="text" name="lastname" id="lastName" th:value="${user.lastname}">
+</div>
+<div class="single-input-fields">
+<label>User Name</label>
+<input type="text" name="username" id="userName" th:value="${user.username}">
+</div>
+<div class="single-input-fields">
+<label>Current Password</label>
+<input type="password" name="currentPassword" id="currentPassword">
+</div>
+<div class="single-input-fields">
+<label>* Email Address</label>
+<input type="email" name="email" id="email" th:value="${user.email}">
+</div>
+
+<div class="single-input-fields">
+<label>* New Password</label>
+<input type="password" name="newPassword" id="newPassword">
+</div>
+
+<div class="single-input-fields">
+<label>* Confirm Password</label>
+<input type="password" name="confirmPassword" id="confirmPassword">
+</div>
+
+</div>
+
+<div class="register-footer">
+<button class="btn-send" type="submit" style="cursor:pointer;">Submit</button>
+</div>
+</form>
+</div>
+
+</div>
+
+</main>
+</body>
+</html>

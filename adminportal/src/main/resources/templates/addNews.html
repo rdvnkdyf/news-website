@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" xlmns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/sidebar :: common-sidebar" />
+
+
+<body id="page-top">
+     <div id="wrapper">
+        <div th:replace="common/sidebar :: sidebar" />
+
+          <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+               <div th:replace="common/header :: header" />
+
+                    <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                  
+
+                    <form class="form-horizontal" th:action="@{/news/add}" method="post"
+				enctype="multipart/form-data">
+				<fieldset>
+					<legend class="center-block">
+						New News Information<span style="font-size: small"> * is a
+							required field</span>
+					</legend>
+					<hr>
+
+
+					<!-- title -->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="title">* Title</label>
+
+						<div class="col-md-8">
+							<input type="text" name="title" class="form-control" id="title"
+								th:value="${news.title}" required="required" placeholder="Title" />
+							<span class="help-block">Title of the news</span>
+						</div>
+					</div>
+
+					<!-- title -->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="title">* Sub Title</label>
+
+						<div class="col-md-8">
+							<input type="text" name="subTitle" class="form-control" id="subTitle"
+								th:value="${news.subTitle}" required="required" placeholder="Sub Title" />
+							<span class="help-block">Sub Title of the news</span>
+						</div>
+					</div>
+
+
+					<!-- author -->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="author">*
+							Author</label>
+						<div class="col-md-8">
+							<input type="text" name="author" class="form-control" id="author"
+								th:value="${news.author}" required="required"
+								placeholder="Author" /> <span class="help-block">Author
+								of the news</span>
+						</div>
+					</div>
+
+
+					
+
+
+						<!-- category -->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="category">*
+							Category</label>
+						<div class="col-md-8">
+							<select th:value="${news.category}" id="category" name="category"
+								class="form-control">
+								<option value="" selected="selected" disabled="disabled">Please
+									select an option...</option>
+
+                                <span data-th-each="category : ${categoryList}">
+
+						
+								<option th:text="${category.name}"></option>
+										</span>
+							</select>
+						</div>
+					</div>
+
+
+					
+						<!-- newsType -->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="category">*
+							News Type</label>
+						<div class="col-md-8">
+							<select th:value="${news.newsType}" id="newsType" name="newsType"
+								class="form-control">
+								<option value="" selected="selected" disabled="disabled">Please
+									select an option...</option>
+
+                              
+
+								<option>Normal</option>
+								<option>Vip News</option>
+								<option>Popular</option>
+								<option>Editor Picks</option>
+										
+							</select>
+						</div>
+					</div>
+
+
+					
+
+
+
+						<!-- status of book -->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="status">Status</label>
+						<div class="col-md-8">
+							<label><input value="true" type="radio" name="active"
+								checked="checked" /> Active </label> <label><input
+								value="false" type="radio" name="active" />
+								Inactive </label> <span class="help-block" style="color:blue;">Whether the news is
+								active or inactive</span>
+						</div>
+					</div>
+
+
+
+
+
+<label class="control-label" for="description"> * Description</label>
+			 	<textarea name="description" id="description" th:value="${news.description}"></textarea>
+<span class="help-block">Description of the news</span>
+
+<div style="margin-bottom: 10px;"></div>
+
+					<!-- upload image -->
+					<div class="form-group">
+						<div class="col-md-2">
+							<label for="newsImage">Upload news image</label>
+						</div>
+						<div class="col-md-8">
+							<input id="newsImage" type="file" name="newsImage"
+								th:value="${news.image}" />
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<div class="col-md-2"></div>
+						<div class="col-md-8">
+							<button type="submit" class="btn btn-success">Add News</button>
+							<a class="btn btn-danger" th:href="@{/}">Cancel</a>
+						</div>
+					</div>
+
+
+
+
+					</fieldset>
+					</form>
+
+                </div>
+                <!-- /.container-fluid -->
+
+              </div>
+            <div th:replace="common/footer :: footer" />
+
+              </div>
+              </div>
+
+
+
+     <div th:replace="common/footer-bottom-scripts :: footer-bottom-scripts" />
+
+	</body>
+
+</html>
